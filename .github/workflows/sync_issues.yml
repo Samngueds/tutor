@@ -24,9 +24,9 @@ jobs:
 
     - name: Sync Issues
       env:
-        PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }} # Token do repositório privado
+        PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }} # Token do repositório privado (central)
         PUBLIC_REPO_TOKEN: ${{ secrets.PUBLIC_REPO_TOKEN }}   # Token do repositório público
-        PRIVATE_REPO: ${{ secrets.PRIVATE_REPO }}             # Nome do repositório privado (ex: "usuario/repo_privado")
+        PRIVATE_REPO: ${{ secrets.PRIVATE_REPO }}             # Nome do repositório privado (central)
         PUBLIC_REPO: ${{ secrets.PUBLIC_REPO }}               # Nome do repositório público (ex: "usuario/repo_publico")
       run: |
         ruby sync_issues.rb
