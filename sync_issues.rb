@@ -12,9 +12,11 @@ private_client = Octokit::Client.new(access_token: private_repo_token)
 
 def fetch_issues(client, repo)
   puts "Buscando issues do repositório #{repo}..."
-  client.issues(repo, state: 'all').map do |issue|
+  issues = client.issues(repo, state: 'all').map do |issue|
     { number: issue.number, title: issue.title, body: issue.body }
   end
+  puts "Issues encontradas: #{issues.size}"
+  issues
 rescue => e
   puts "Erro ao buscar issues: #{e.message}"
   []
